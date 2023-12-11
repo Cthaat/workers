@@ -36,13 +36,16 @@ int main()
 			break;
 		}
 		case 4:
-
+			mastetr.change();
 			break;
 		case 5:
+			mastetr.find();
 			break;
 		case 6:
+			mastetr.sort();
 			break;
 		case 7:
+			mastetr.clear();
 			break;
 		default:
 			system("cls");

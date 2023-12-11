@@ -17,7 +17,9 @@ public:
 	void insert(worker date);
 	void show();
 	void del(string nam);
-	void change(string nam);
+	void mchange(string nam);
+	void find(string nam);
 	void sort();
+	void clear();
 };
 

@@ -40,19 +40,22 @@ void operation::change()
     cout << "修改谁的信息:" << endl;
     string tmp_name;
     cin >> tmp_name;
-
+    worker_list.mchange(tmp_name);
 }
 void operation::find()
 {
-    ;
+    cout << "查找谁的信息:" << endl;
+    string tmp_name;
+    cin >> tmp_name;
+    worker_list.find(tmp_name);
 }
 void operation::sort()
 {
-    ;
+    worker_list.sort();
 }
 void operation::clear()
 {
-    ;
+    worker_list.clear();
 }
 
 void operation::load(worker tmp)

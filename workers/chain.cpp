@@ -74,6 +74,7 @@ void list::sort()
 	node* q = p->next;
 	while (p)
 	{
+		q = p->next;
 		while (q)
 		{
 			if (p->date.ID > q->date.ID)
@@ -88,7 +89,7 @@ void list::sort()
 	}
 }
 
-void list::change(string nam)
+void list::mchange(string nam)
 {
 	worker temp_worke;
 	int m_ID;
@@ -105,6 +106,8 @@ void list::change(string nam)
 	if (p->date.name == nam)
 	{
 		p->date.ID = m_ID;
+		p->date.name = m_name;
+		p->date.job = m_job;
 		return;
 	}
 	if (!(p->next))
@@ -123,7 +126,62 @@ void list::change(string nam)
 	}
 	else
 	{
-		p->next = q->next;
+		p->date.ID = m_ID;
+		p->date.name = m_name;
+		p->date.job = m_job;
+		return;
+	}
+}
+
+void list::find(string nam)
+{
+	node* p = head;
+	node* q = p->next;
+	if (p->date.name == nam)
+	{
+		cout << "ID:" << p->date.ID << "name:" << p->date.name << "job:" << p->date.job << endl;
+		return;
+	}
+	if (!(p->next))
+	{
+		return;
+	}
+	while (q->date.name != nam && q->next)
+	{
+		p = q;
+		q = q->next;
+	}
+	if (!q)
+	{
+		cout << "Not found" << endl;
+		return;
+	}
+	else
+	{
+		cout << "ID:" << p->date.ID << "name:" << p->date.name << "job:" << p->date.job << endl;
+		return;
+	}
+}
+
+void list::clear()
+{
+	string s1;
+	cout << "确定吗？" << endl;
+	cout << "如果确定输入确定：" << endl;
+	cin >> s1;
+	if (s1 == "确定")
+	{
+		node* p = head;
+		node* q = p->next;
+		while (q)
+		{
+			delete p;
+			p = q;
+			q = p->next;
+		}
 		delete q;
+		p = NULL;
+		q = NULL;
+		head = NULL;
 	}
 }
